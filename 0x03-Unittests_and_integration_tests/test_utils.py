@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Unit tests for utils module.
+These is a Unit tests for utils module.
 """
 
 import unittest
@@ -10,7 +10,7 @@ from utils import access_nested_map, get_json, memoize
 
 
 class TestAccessNestedMap(unittest.TestCase):
-    """Test cases for access_nested_map function."""
+    """The test cases for an access_nested_map function."""
 
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
@@ -18,7 +18,7 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": {"b": 2}}, ("a", "b"), 2),
     ])
     def test_access_nested_map(self, nested_map, path, expected):
-        """Test access_nested_map returns expected result."""
+        """The test access_nested_map which returns expected result."""
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
     @parameterized.expand([
@@ -26,17 +26,17 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": 1}, ("a", "b"), "b"),
     ])
     def test_access_nested_map_exception(self, nested_map, path, expected_key):
-        """Test access_nested_map raises KeyError with expected message."""
+        """The test access_nested_map which will raises KeyError with expected message."""
         with self.assertRaises(KeyError) as context:
             access_nested_map(nested_map, path)
         self.assertEqual(str(context.exception), f"'{expected_key}'")
 
 
 class TestMemoize(unittest.TestCase):
-    """Test cases for the memoize decorator."""
+    """Test cases for a  memoize decorator."""
 
     def test_memoize(self):
-        """Test that memoize caches the result after first call."""
+        """Test that memoize caches for the result after first call."""
 
         class TestClass:
             def a_method(self):
@@ -53,6 +53,6 @@ class TestMemoize(unittest.TestCase):
             mock_method.assert_called_once()      # Ensure a_method called only once
 
 
-# Optional: If you want the tests to run when file is executed directly
+# Optional: this is only when you want the tests to run when file is being executed directly
 if __name__ == '__main__':
     unittest.main()
